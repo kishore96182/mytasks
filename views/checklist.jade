@@ -1,0 +1,62 @@
+extends layout
+
+
+block content
+
+
+
+
+    h1= title
+    table.table.table-bordered(class="border='1'",style='background-color:white')
+        thead
+          tr
+            th
+               .form-group
+                    form(action='http://localhost:3000/tasksubmit', method='POST')
+                
+                        input#usr.form-control(type='text', name='task', placeholder='Enter an activity')
+                        button.chg.btn.btn-primary(type='submit' value='submit') Add
+           
+
+            th 
+              
+            th 
+               form#formNewTask(name='alldone', method='post', action='http://localhost:3000/alldone')
+                button.chg1.btn.btn-primary(type="submit" value='submit') all done
+              
+               
+                   
+      
+        tbody
+            ul
+            each val, index in userlist
+    
+                tr
+                    td 
+                        li=  val.task+''+val.date
+                        //li= index + ': ' + val.task+''+val.date
+                    td 
+                      form#formNewTask(name='done', method='post', action='http://localhost:3000/done:'+val._id+'')
+                       button.btn.btn-success(type="submit") its done
+                    td 
+                      form#formNewTask(name='newtask', method='post', action='http://localhost:3000/delete:'+val._id+'')
+                       button.btn.btn-success(type="submit") delete
+                       
+                    
+  
+    //-     input#usr.form-control(type='text' placeholder='Enter an activity' )
+    //- script.
+    //-     var editItem = function() {
+         
+    //-         var task = $('#usr').val();
+    //-         var today = new Date();
+    //-         var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+    //-         date = '(Created at:'+date+')';
+    //-         var data = task+date;
+            
+    //-         console.log(data);
+    //-     }
+
+
+
+

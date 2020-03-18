@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  
+  .container
+  h2 Rules defined for a team for code review to be considered done. test
+  table.table.table-bordered(class="border='1'",style='background-color:white')
+    thead
+      tr
+        td Completed Tasks
+          tbody
+            tr
+              td
+                ul
+                 each val in userlist
+                  strike
+                    li= val.task+""+ val.date
+               
+
+  

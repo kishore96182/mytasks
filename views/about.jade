@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  
+  .container(style='background-color:white')
+  h2 Rules defined for a team for code review to be considered done. test
+  table.table.table-bordered(class="border='1'",style='background-color:white')
+    thead
+      tr
+        td Review Deleted Tasks
+          tbody
+            tr
+              td
+                ul
+                  each val in userlist
+                    li= val.task
+  
+
+//-   p 1. Verify directory and file organization are followed.
+//-   p 2. Verify proper comments and declarations are in place.
+//-   p 3. Verify naming conventions are followed.
+//-   p 4. Verify miscellaneous practices are follwed.
+//-   p 5. Verify coding standards are taken care.
+
+
+
